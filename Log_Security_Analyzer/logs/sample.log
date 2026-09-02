@@ -1,0 +1,38 @@
+# Sample authentication log
+# Format: timestamp, username, ip_address, status, location(optional)
+
+# --- Normal daily activity ---
+2024-06-01 08:00:00, Rahul, 10.0.0.5, SUCCESS, Mumbai-IN
+2024-06-01 08:05:00, Amit, 10.0.0.6, SUCCESS, Delhi-IN
+2024-06-01 09:00:00, Neha, 172.16.0.1, SUCCESS, HQ-Datacenter
+
+# --- Scenario 1: Multiple failed logins for one user ---
+2024-06-01 10:00:00, Rahul, 45.33.10.2, FAILED, Unknown
+2024-06-01 10:01:00, Rahul, 45.33.10.2, FAILED, Unknown
+2024-06-01 10:02:00, Rahul, 45.33.10.2, FAILED, Unknown
+2024-06-01 10:03:00, Rahul, 45.33.10.2, FAILED, Unknown
+2024-06-01 10:04:00, Rahul, 45.33.10.2, FAILED, Unknown
+
+# --- Scenario 5: Success after repeated failures ---
+2024-06-01 10:05:00, Rahul, 45.33.10.2, SUCCESS, Unknown
+
+# --- Scenario 2: Brute-force burst from one IP ---
+2024-06-01 11:00:00, User01, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:00:10, User02, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:00:20, User03, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:00:30, User04, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:00:40, User05, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:00:50, User06, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:01:00, User07, 203.0.113.9, FAILED, Unknown
+2024-06-01 11:01:10, User08, 203.0.113.9, FAILED, Unknown
+
+# --- Scenario 4: Unusual login source ---
+2024-06-01 12:00:00, Amit, 10.0.0.6, SUCCESS, Delhi-IN
+2024-06-01 13:00:00, Amit, 91.108.56.12, SUCCESS, Moscow-RU
+
+# --- Scenario 4b: Admin outside trusted HQ ---
+2024-06-01 14:00:00, Neha, 88.99.12.34, SUCCESS, Unknown-VPN
+
+# --- Normal activity ---
+2024-06-01 15:00:00, Rahul, 10.0.0.5, SUCCESS, Mumbai-IN
+2024-06-01 15:30:00, User01, 10.0.0.7, SUCCESS, Chennai-IN

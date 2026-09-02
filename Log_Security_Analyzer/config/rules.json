@@ -1,0 +1,50 @@
+{
+    "rules": {
+        "multiple_failed_logins": {
+            "enabled": true,
+            "threshold": 5,
+            "window_minutes": 5,
+            "severity": "HIGH"
+        },
+        "brute_force": {
+            "enabled": true,
+            "threshold": 8,
+            "window_minutes": 5,
+            "severity": "CRITICAL"
+        },
+        "multiple_users_per_ip": {
+            "enabled": true,
+            "threshold": 5,
+            "window_minutes": 10,
+            "severity": "HIGH"
+        },
+        "unusual_login_source": {
+            "enabled": true,
+            "severity": "MEDIUM"
+        },
+        "success_after_failures": {
+            "enabled": true,
+            "threshold": 3,
+            "window_minutes": 10,
+            "severity": "CRITICAL"
+        }
+    },
+    "trusted_locations": {
+        "Rahul": [
+            "Mumbai-IN",
+            "Pune-IN"
+        ],
+        "Amit": [
+            "Delhi-IN"
+        ],
+        "Priya": [
+            "Nagpur-IN"
+        ],
+        "Neha": [
+            "Pune-IN"
+        ],
+        "Admin": [
+            "HQ-Datacenter"
+        ]
+    }
+}
